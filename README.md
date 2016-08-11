@@ -1,17 +1,17 @@
 # swebs
-Simple Web Server (Minimal)
+## Simple Web Server (Minimal)
 
 Extremely simple Web Server
 
 Usage: swebs \<listen-port>
 
--Single-threaded
+> Single-threaded
 
--Runs on CWD
+> Runs on CWD
 
--Not intended for serving large files
+> Not intended for serving large files
 
--Default port: 8080
+> Default port: 8080
 
 
-make CONF=Release
+`make CONF=Release`
