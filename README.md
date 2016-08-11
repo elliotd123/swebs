@@ -15,5 +15,7 @@ Usage: swebs \<listen-port>
 
 > Default page: index.html
 
+> No library dependencies
+
 
 `make CONF=Release`
