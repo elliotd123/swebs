@@ -12,3 +12,6 @@ Usage: swebs \<listen-port>
 -Not intended for serving large files
 
 -Default port: 8080
+
+
+make CONF=Release
