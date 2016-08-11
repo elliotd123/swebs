@@ -13,5 +13,7 @@ Usage: swebs \<listen-port>
 
 > Default port: 8080
 
+> Default page: index.html
+
 
 `make CONF=Release`
