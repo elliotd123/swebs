@@ -3,7 +3,7 @@ Simple Web Server (Minimal)
 
 Extremely simple Web Server
 
-Usage: swebs <listen-port>
+Usage: swebs \<listen-port>
 
 -Single-threaded
 -Runs on CWD
