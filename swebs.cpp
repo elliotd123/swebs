@@ -1,4 +1,5 @@
 #include "config.h"
+#include <stdlib.h>
 #include <iostream>
 #include <unistd.h>
 #include <sys/types.h>
