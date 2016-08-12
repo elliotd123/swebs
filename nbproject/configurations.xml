@@ -38,9 +38,11 @@
       <compileType>
         <cTool>
           <developmentMode>5</developmentMode>
+          <standard>10</standard>
         </cTool>
         <ccTool>
           <developmentMode>5</developmentMode>
+          <standard>8</standard>
         </ccTool>
         <fortranCompilerTool>
           <developmentMode>5</developmentMode>
