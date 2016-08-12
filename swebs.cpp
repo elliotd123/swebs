@@ -63,13 +63,10 @@ string generateResponse(HTTPRequest request) {
 	
 }
 
-string generateHeader(string response) {
-    
-}
-
 void handle_ctrl_c(int signum) {
-	close(sock);	
         close(cli_sock);
+	close(sock);	
+        
 	exit(0);
 }
 
@@ -81,6 +78,13 @@ int main(int argc, char** argv) {
         }
 	string host = "0.0.0.0";
 	sock = socket(AF_INET,SOCK_STREAM,0);
+        int option = 1;
+        if(setsockopt(sock,SOL_SOCKET,(SO_REUSEPORT | SO_REUSEADDR),&option,sizeof(option)) < 0)
+        {
+            printf("setsockopt failed\n");
+            close(sock);
+            exit(2);
+        }
 	struct sockaddr_in address;
 	memset(&address,'0',sizeof(address));
 
@@ -89,6 +93,7 @@ int main(int argc, char** argv) {
 	address.sin_port = htons(port);
 	
 	bind(sock,(const sockaddr *)&address,sizeof(address));
+        
 	listen(sock,16);
 	socklen_t len = sizeof(address);
 	while (true) {

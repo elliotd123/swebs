@@ -4,6 +4,7 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
+      <itemPath>config.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
@@ -28,17 +29,6 @@
   </logicalFolder>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
-    <conf name="Debug" type="1">
-      <toolsSet>
-        <compilerSet>default</compilerSet>
-        <dependencyChecking>true</dependencyChecking>
-        <rebuildPropChanged>false</rebuildPropChanged>
-      </toolsSet>
-      <compileType>
-      </compileType>
-      <item path="swebs.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-    </conf>
     <conf name="Release" type="1">
       <toolsSet>
         <compilerSet>default</compilerSet>
@@ -59,6 +49,21 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
+      <item path="config.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="swebs.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+    </conf>
+    <conf name="Debug" type="1">
+      <toolsSet>
+        <compilerSet>default</compilerSet>
+        <dependencyChecking>true</dependencyChecking>
+        <rebuildPropChanged>false</rebuildPropChanged>
+      </toolsSet>
+      <compileType>
+      </compileType>
+      <item path="config.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="swebs.cpp" ex="false" tool="1" flavor2="0">
       </item>
     </conf>
