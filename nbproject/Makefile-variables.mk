@@ -12,8 +12,8 @@ CND_ARTIFACT_DIR_Release=dist/Release/GNU-Linux
 CND_ARTIFACT_NAME_Release=swebs
 CND_ARTIFACT_PATH_Release=dist/Release/GNU-Linux/swebs
 CND_PACKAGE_DIR_Release=dist/Release/GNU-Linux/package
-CND_PACKAGE_NAME_Release=swebs.tar
-CND_PACKAGE_PATH_Release=dist/Release/GNU-Linux/package/swebs.tar
+CND_PACKAGE_NAME_Release=swebs.deb
+CND_PACKAGE_PATH_Release=dist/Release/GNU-Linux/package/swebs.deb
 # Debug configuration
 CND_PLATFORM_Debug=GNU-Linux
 CND_ARTIFACT_DIR_Debug=dist/Debug/GNU-Linux
