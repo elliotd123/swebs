@@ -63,10 +63,14 @@
         </packFileList>
         <packInfoList>
           <packInfoListElem name="Package" value="swebs" mandatory="true"/>
-          <packInfoListElem name="Version" value="1.0" mandatory="true"/>
+          <packInfoListElem name="Version" value="0.1" mandatory="true"/>
           <packInfoListElem name="Architecture" value="amd64" mandatory="false"/>
-          <packInfoListElem name="Maintainer" value="circle" mandatory="false"/>
-          <packInfoListElem name="Description" value="..." mandatory="false"/>
+          <packInfoListElem name="Maintainer"
+                            value="Elliot Dronebarger &lt;elliot.dronebarger@gmail.com>"
+                            mandatory="false"/>
+          <packInfoListElem name="Description"
+                            value="No-Dependency Simple Web Server"
+                            mandatory="false"/>
         </packInfoList>
       </packaging>
       <item path="config.h" ex="false" tool="3" flavor2="0">

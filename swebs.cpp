@@ -54,10 +54,13 @@ string generateResponse(HTTPRequest request) {
 		stringstream buf;
 		buf << ifs.rdbuf();
                 
-                result = "HTTP/1.1 200 OK\r\n\r\n";
-		result += buf.str();
+		if (buf.str().length() == 0) {
+                    result = error404();
+                } else {
+                    result = "HTTP/1.1 200 OK\r\n\r\n";
+                    result += buf.str();
+                }
 		
-		if (result.size() == 0) result = error404();
 		return result;
 	}
 	

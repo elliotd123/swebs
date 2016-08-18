@@ -72,10 +72,10 @@ mkdir -p ${NBTMPDIR}/DEBIAN
 
 cd "${TOP}"
 echo 'Package: swebs' >> ${CONTROL_FILE}
-echo 'Version: 1.0' >> ${CONTROL_FILE}
+echo 'Version: 0.1' >> ${CONTROL_FILE}
 echo 'Architecture: amd64' >> ${CONTROL_FILE}
-echo 'Maintainer: circle' >> ${CONTROL_FILE}
-echo 'Description: ...' >> ${CONTROL_FILE}
+echo 'Maintainer: Elliot Dronebarger <elliot.dronebarger@gmail.com>' >> ${CONTROL_FILE}
+echo 'Description: No-Dependency Simple Web Server' >> ${CONTROL_FILE}
 
 # Create Debian Package
 cd "${TOP}"
