@@ -36,6 +36,11 @@ HTTPRequest parseRequest(string input) {
 	ins >> request.method;
 	ins >> request.target;
 	ins >> request.HTTP_version;
+
+	int params = request.target.find_first_of("?");
+	if (params != string::npos) {
+		request.target = request.target.substr(0,params);
+	}
 	
 	return request;
 }
