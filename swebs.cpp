@@ -24,8 +24,14 @@ struct HTTPRequest {
 	string HTTP_version = "HTTP/1.1";
 };
 
+struct HTTPResponse {
+	string statusLine = "";
+	string header = "";
+	string body = "";
+};
+
 string error404() {
-	string response("HTTP/1.1 404 Not Found\r\n\r\n<html><title>404</title><body><p><h1>404 - Page Not Found</h1></p></body></html>\r\n");
+	string response("<html><title>404</title><body><p><h1>404 - Page Not Found</h1></p></body></html>\r\n");
 	return response;
 }
 
@@ -45,9 +51,10 @@ HTTPRequest parseRequest(string input) {
 	return request;
 }
 
-string generateResponse(HTTPRequest request) {
+HTTPResponse generateResponse(HTTPRequest request) {
+	HTTPResponse response;
 	string result = "";
-	if (request.method == "GET") {
+	if (request.method == "GET" || request.method == "HEAD") {
 		if (request.target.size() == 1 && request.target[0] == '/') {
 			request.target = DEFAULT_PAGE;
 		} else if (request.target[0] == '/') {
@@ -60,15 +67,18 @@ string generateResponse(HTTPRequest request) {
 		buf << ifs.rdbuf();
                 
 		if (buf.str().length() == 0) {
-                    result = error404();
+			response.statusLine = "HTTP/1.1 404 NOT FOUND";
+                    response.body = error404();
                 } else {
-                    result = "HTTP/1.1 200 OK\r\n\r\n";
-                    result += buf.str();
+                    response.statusLine = "HTTP/1.1 200 OK";
+			if (request.method == "GET") {
+                  		response.body += buf.str();
+			}
                 }
-		
-		return result;
+	} else {
+		response.statusLine = "HTTP/1.1 501 Not Implemented"; 
 	}
-	
+	return response;
 }
 
 void handle_ctrl_c(int signum) {
@@ -111,14 +121,14 @@ int main(int argc, char** argv) {
 			memset(buf,'\0',1024);
 			int size = recv(cli_sock,buf,1024,0);
 			cout << "New Request:\n" << buf << endl;
-			string response = "";
-			
 			string request_message = string(buf);
 			
 			HTTPRequest req = parseRequest(request_message);
-			response = generateResponse(req);
+			HTTPResponse response = generateResponse(req);
 			
-			send(cli_sock,(const void *)response.c_str(),response.size(),0);
+			send(cli_sock,(const void *)response.statusLine.c_str(),response.statusLine.size(),0);
+			send(cli_sock,"\r\n\r\n",4,0);
+			send(cli_sock,(const void *)response.body.c_str(),response.body.size(),0);
 		}
 		close(cli_sock);
 	}
