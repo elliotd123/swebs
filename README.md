@@ -17,5 +17,6 @@ Usage: swebs \<listen-port>
 
 > No library dependencies
 
+Goal is to meet minimum compliance with RFC 2068 for HTTP/1.1
 
-`make CONF=Release`
+SSL will not be supported in this project, as it would require a dependency on some SSL suite
