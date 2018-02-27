@@ -5,3 +5,5 @@ file(GLOB swebs_SRC
 	"src/*.cpp"
 )
 add_executable(swebs ${swebs_SRC})
+
+install(TARGETS swebs DESTINATION bin)

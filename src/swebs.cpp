@@ -114,6 +114,7 @@ int main(int argc, char** argv) {
         
 	listen(sock,16);
 	socklen_t len = sizeof(address);
+	std::cout << "Listening on port " << port << "..." << std::endl;
 	while (true) {
 		cli_sock = accept(sock,(sockaddr *)&address,&len);
 		if (cli_sock > 0) {
