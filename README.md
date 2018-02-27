@@ -22,8 +22,11 @@ Goal is to meet minimum compliance with RFC 2068 for HTTP/1.1
 Compile/Install:
 
 > mkdir build && cd build
+
 > cmake ..
+
 > make
+
 > make install
 
 SSL will not be supported in this project, as it would require a dependency on some SSL suite
