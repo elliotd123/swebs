@@ -81,11 +81,15 @@ HTTPResponse generateResponse(HTTPRequest request) {
 	return response;
 }
 
-void handle_ctrl_c(int signum) {
-        close(cli_sock);
+void quit() {
+	close(cli_sock);
 	close(sock);	
         
 	exit(0);
+}
+
+void handle_ctrl_c(int signum) {
+    quit();
 }
 
 int main(int argc, char** argv) {
@@ -110,7 +114,12 @@ int main(int argc, char** argv) {
 	address.sin_addr.s_addr = htonl(INADDR_ANY);
 	address.sin_port = htons(port);
 	
-	bind(sock,(const sockaddr *)&address,sizeof(address));
+	int error = bind(sock,(const sockaddr *)&address,sizeof(address));
+
+	if (error == -1) {
+		std::cerr << "Error binding to address. Aborting!" << std::endl;
+		quit();
+	}
         
 	listen(sock,16);
 	socklen_t len = sizeof(address);
